@@ -1,15 +1,25 @@
 <template>
   <header>
-    <h1>Task Tracker {{ title }}</h1>
+    <h1>Task Tracker</h1>
+    <Button @btn-click="$emit('toggle-add-task')"
+     :text="showAddTask? 'Close' : 'Add Task'"
+     :color="showAddTask? 'Red' : 'Green'"/>
   </header>
 </template>
 
 
 <script>
+
+import Button from './Button.vue'
+
   export default {
     name: 'Header',
     props: {
-      title: String
+      title: String,
+      showAddTask: Boolean
+    },
+    components: {
+      Button
     }
   }
 </script>
